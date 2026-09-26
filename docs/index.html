@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f8fbff">
+  <meta name="description" content="Download Floating VTT Player for Windows. Play MP3 and WAV audio with floating WebVTT subtitles—no .NET setup required.">
+  <title>Floating VTT Player — Download for Windows</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230d1833'/%3E%3Cpath d='M41 12v30.5a8.5 8.5 0 1 1-5-7.7V20l-15 3v23.5a8.5 8.5 0 1 1-5-7.7V19l25-7Z' fill='%235685ff'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <div class="atmosphere" aria-hidden="true">
+    <div class="ambient-light"></div><div class="dot-field dot-field-left"></div><div class="dot-field dot-field-right"></div>
+    <svg class="contour contour-top" viewBox="0 0 1440 530" preserveAspectRatio="none">
+      <path d="M-110 240C120 60 260 85 428 160S710 292 918 160s370-218 640-40"/>
+      <path d="M-110 270C120 90 260 115 428 190S710 322 918 190s370-218 640-10"/>
+      <path d="M-110 300C120 120 260 145 428 220S710 352 918 220s370-218 640 20"/>
+    </svg>
+    <svg class="contour contour-bottom" viewBox="0 0 1440 380" preserveAspectRatio="none">
+      <path d="M-130 165C100 315 288 72 480 180s288 158 468 42 330-64 610 130"/>
+      <path d="M-130 184C100 334 288 91 480 199s288 158 468 42 330-64 610 130"/>
+      <path d="M-130 203C100 353 288 110 480 218s288 158 468 42 330-64 610 130"/>
+      <path d="M-130 222C100 372 288 129 480 237s288 158 468 42 330-64 610 130"/>
+      <path d="M-130 241C100 391 288 148 480 256s288 158 468 42 330-64 610 130"/>
+      <path d="M-130 260C100 410 288 167 480 275s288 158 468 42 330-64 610 130"/>
+    </svg>
+    <canvas id="particle-canvas"></canvas>
+  </div>
+  <div class="page-shell" id="top">
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="Floating VTT Player home">
+        <span class="brand-icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none"><path d="M22.5 4.5v16.7a4.7 4.7 0 1 1-3.3-4.5V9.1l-9 2.1v13a4.7 4.7 0 1 1-3.3-4.5V8.8l15.6-4.3Z" fill="currentColor"/></svg></span>
+        <span>Floating VTT Player</span>
+      </a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="#how-it-works" data-i18n="navHow">How it works</a>
+        <a href="https://github.com/anonym-asparagus/FloatingVTTPlayer" target="_blank" rel="noopener noreferrer">GitHub <span class="external-mark" aria-hidden="true">↗</span></a>
+      </nav>
+      <div class="language-switch" role="group" aria-label="Website language">
+        <button type="button" data-lang="en" aria-pressed="true">EN</button><span aria-hidden="true">/</span><button type="button" data-lang="zh" aria-pressed="false">中文</button>
+      </div>
+    </header>
+    <main>
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="kicker"><span class="kicker-line"></span><span data-i18n="kicker">A little window for the words</span></p>
+          <h1 id="hero-title" data-i18n="heroTitle">Let the words<br>float.</h1>
+          <p class="hero-description" data-i18n="heroDescription">Play your audio with subtitles that stay in view.</p>
+          <div class="platform-actions">
+            <a class="download-button" href="https://github.com/anonym-asparagus/FloatingVTTPlayer/releases/download/v0.1.0/FloatingVttPlayer.exe" aria-label="Download Floating VTT Player for Windows x64">
+              <svg class="windows-mark" viewBox="0 0 24 24" aria-hidden="true"><path d="M1.5 4.1 10.8 2.8v8.3H1.5V4.1Zm11.2-1.6L22.5 1v10.1h-9.8V2.5ZM1.5 12.9h9.3v8.3L1.5 19.9v-7Zm11.2 0h9.8V23l-9.8-1.5v-8.6Z" fill="currentColor"/></svg>
+              <span data-i18n="downloadWindows">Download for Windows</span>
+              <svg class="button-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <div class="mac-option" aria-label="macOS version coming soon">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7.3 4.5h9.4a2 2 0 0 1 2 2v8.8H5.3V6.5a2 2 0 0 1 2-2Zm-4 13.6h17.4l-1.1 1.4H4.4l-1.1-1.4Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
+              <span data-i18n="macSoon">macOS · Coming soon</span>
+            </div>
+          </div>
+          <p class="release-detail"><span class="release-dot" aria-hidden="true"></span><span data-i18n="releaseDetail">Windows x64 · Self-contained .exe · No .NET setup</span></p>
+        </div>
+        <div class="product-preview" role="img" aria-label="Illustration of the audio player and floating subtitle window">
+          <div class="player-window">
+            <div class="player-titlebar"><span class="player-title"><svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M22.5 4.5v16.7a4.7 4.7 0 1 1-3.3-4.5V9.1l-9 2.1v13a4.7 4.7 0 1 1-3.3-4.5V8.8l15.6-4.3Z" fill="currentColor"/></svg>Floating VTT Player</span><span class="window-dots" aria-hidden="true"><i></i><i></i><i></i></span></div>
+            <div class="player-content">
+              <div class="track-heading"><span class="track-pulse"></span><span data-i18n="previewTrack">Now playing</span></div>
+              <div class="progress-track"><span></span><i></i></div>
+              <div class="track-times"><span>00:32</span><span>02:17</span></div>
+              <div class="preview-controls" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M5 4h2v16H5zm14 0v16L8 12z"/></svg>
+                <span class="preview-play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 4.8v14.4L19 12 8 4.8Z"/></svg></span>
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17 4h2v16h-2zM5 4v16l11-8z"/></svg>
+                <span class="preview-volume"><svg viewBox="0 0 24 24" fill="none"><path d="M4 9h4l5-4v14l-5-4H4V9Zm12-1a6 6 0 0 1 0 8m2-11a10 10 0 0 1 0 14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><i></i></span>
+              </div>
+            </div>
+          </div>
+          <div class="subtitle-window"><span class="subtitle-spark" aria-hidden="true">✦</span><span data-i18n="previewSubtitle">Music makes a brighter day.</span></div>
+          <div class="preview-orbit preview-orbit-one" aria-hidden="true"></div><div class="preview-orbit preview-orbit-two" aria-hidden="true"></div>
+        </div>
+      </section>
+      <div class="hero-tail"><span></span><p data-i18n="heroTail">A small player for the moments that matter.</p><span></span></div>
+      <section id="how-it-works" class="how-section" aria-labelledby="how-title">
+        <div class="section-heading"><p class="section-index">01 / 03</p><div><h2 id="how-title" data-i18n="howTitle">Your audio, your subtitles.</h2><p data-i18n="howIntro">Everything begins with one folder on your computer.</p></div></div>
+        <div class="steps-grid">
+          <article class="step-card"><span class="step-number">01</span><span class="step-icon" aria-hidden="true">↓</span><h3 data-i18n="stepOneTitle">Download and open</h3><p data-i18n="stepOneBody">Run the Windows app directly. No .NET installation or build tools needed.</p></article>
+          <article class="step-card"><span class="step-number">02</span><span class="step-icon" aria-hidden="true">⌕</span><h3 data-i18n="stepTwoTitle">Choose a folder</h3><p data-i18n="stepTwoBody">Keep MP3 or WAV files beside their matching .vtt subtitle files.</p></article>
+          <article class="step-card"><span class="step-number">03</span><span class="step-icon" aria-hidden="true">♫</span><h3 data-i18n="stepThreeTitle">Listen your way</h3><p data-i18n="stepThreeBody">Move, resize, and style the floating subtitles while the audio plays.</p></article>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <a class="footer-brand" href="#top">Floating VTT Player</a>
+      <p data-i18n="footerText">Made for listening with words in view.</p>
+      <div class="footer-links"><a href="https://github.com/anonym-asparagus/FloatingVTTPlayer/releases/tag/v0.1.0" target="_blank" rel="noopener noreferrer" data-i18n="releaseNotes">Release notes</a><a id="readme-link" href="https://github.com/anonym-asparagus/FloatingVTTPlayer#readme" target="_blank" rel="noopener noreferrer" data-i18n="readme">Read the guide</a></div>
+    </footer>
+  </div>
+</body>
+</html>

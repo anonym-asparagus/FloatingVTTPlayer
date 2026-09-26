@@ -2,7 +2,7 @@
 
 [English](README.md) | [简体中文](README.zh-CN.md)
 
-**Download the ready-to-run Windows app:** [Floating VTT Player website](https://floating-vtt-player.yangwx51.chatgpt.site). No .NET installation or build tools are needed. A macOS version is planned.
+**Download the ready-to-run Windows app:** [Floating VTT Player website](https://anonym-asparagus.github.io/FloatingVTTPlayer/). No .NET installation or build tools are needed. A macOS version is planned.
 
 A Windows audio player for MP3/WAV folders with same-name WebVTT subtitles and a transparent, always-on-top desktop subtitle overlay.
 

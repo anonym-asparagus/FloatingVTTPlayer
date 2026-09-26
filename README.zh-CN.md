@@ -2,7 +2,7 @@
 
 [English](README.md) | [简体中文](README.zh-CN.md)
 
-**直接下载 Windows 版：**[Floating VTT Player 官网](https://floating-vtt-player.yangwx51.chatgpt.site)。无需安装 .NET，也不用自行编译。macOS 版本将在之后推出。
+**直接下载 Windows 版：**[Floating VTT Player 官网](https://anonym-asparagus.github.io/FloatingVTTPlayer/)。无需安装 .NET，也不用自行编译。macOS 版本将在之后推出。
 
 一款 Windows 音频播放器，可播放文件夹中的 MP3/WAV 文件，并显示与音频文件同名的 WebVTT 字幕。字幕显示在透明、始终置顶的桌面悬浮窗中。
 
