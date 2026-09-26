@@ -1,0 +1,240 @@
+<Window x:Class="FloatingVttPlayer.OverlayWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Subtitle Overlay"
+        Width="1000" Height="190"
+        MinWidth="360" MinHeight="100"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Background="Transparent"
+        Topmost="True"
+        ShowInTaskbar="False"
+        ResizeMode="CanResize"
+        MouseEnter="Window_OnMouseEnter"
+        MouseLeave="Window_OnMouseLeave"
+        PreviewMouseWheel="Window_OnPreviewMouseWheel">
+    <Window.Resources>
+        <Style x:Key="OverlayButton" TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
+            <Setter Property="Padding" Value="8,4" />
+            <Setter Property="Margin" Value="2" />
+            <Setter Property="MinWidth" Value="30" />
+            <Setter Property="FontSize" Value="13" />
+        </Style>
+        <Style x:Key="OverlayComboBox" TargetType="ComboBox">
+            <Setter Property="Background" Value="White" />
+            <Setter Property="Foreground" Value="#FF111827" />
+            <Setter Property="BorderBrush" Value="#FF9CA3AF" />
+            <Setter Property="Padding" Value="6,3" />
+            <Setter Property="ItemTemplate">
+                <Setter.Value>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding}" Foreground="#FF111827" />
+                    </DataTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="ItemContainerStyle">
+                <Setter.Value>
+                    <Style TargetType="ComboBoxItem">
+                        <Setter Property="Background" Value="White" />
+                        <Setter Property="Foreground" Value="#FF111827" />
+                        <Setter Property="Padding" Value="7,4" />
+                        <Style.Triggers>
+                            <Trigger Property="IsHighlighted" Value="True">
+                                <Setter Property="Background" Value="#FFDBEAFE" />
+                                <Setter Property="Foreground" Value="#FF111827" />
+                            </Trigger>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter Property="Background" Value="#FFBFDBFE" />
+                                <Setter Property="Foreground" Value="#FF111827" />
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="PaletteButton" TargetType="Button">
+            <Setter Property="Width" Value="27" />
+            <Setter Property="Height" Value="27" />
+            <Setter Property="Padding" Value="0" />
+            <Setter Property="Margin" Value="3" />
+            <Setter Property="BorderBrush" Value="#FF6B7280" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="Cursor" Value="Hand" />
+        </Style>
+        <Style x:Key="OverlayCloseButton" TargetType="Button">
+            <Setter Property="Width" Value="28" />
+            <Setter Property="Height" Value="28" />
+            <Setter Property="Padding" Value="0" />
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="Cursor" Value="Hand" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid Width="28" Height="28" Background="Transparent">
+                            <Path x:Name="CloseGlyph" Data="M 8,8 L 20,20 M 20,8 L 8,20"
+                                  Stroke="{StaticResource TextBrush}" StrokeThickness="2"
+                                  StrokeStartLineCap="Round" StrokeEndLineCap="Round" />
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="CloseGlyph" Property="Stroke" Value="#FFFCA5A5" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
+    <Border x:Name="OverlayBorder"
+            Background="#01000000"
+            BorderBrush="Transparent"
+            BorderThickness="2"
+            CornerRadius="10"
+            Padding="18"
+            MouseLeftButtonDown="OverlayBorder_OnMouseLeftButtonDown">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <TextBlock x:Name="SubtitleText" Grid.Row="1"
+                       HorizontalAlignment="Stretch"
+                       VerticalAlignment="Center"
+                       TextAlignment="Center"
+                       TextWrapping="Wrap"
+                       Foreground="White"
+                       FontWeight="SemiBold"
+                       FontSize="52">
+                <TextBlock.Effect>
+                    <DropShadowEffect x:Name="SubtitleShadow" Color="Black" BlurRadius="5"
+                                      ShadowDepth="2" Opacity="1" />
+                </TextBlock.Effect>
+            </TextBlock>
+
+            <Border x:Name="HoverToolbar" Grid.Row="0"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Top"
+                    Background="#E6111827"
+                    BorderBrush="#805F6B7A"
+                    BorderThickness="1"
+                    CornerRadius="6"
+                    Padding="4"
+                    Margin="0,0,0,8"
+                    Visibility="Hidden">
+                <StackPanel Orientation="Horizontal">
+                    <Button x:Name="OverlayPlayPauseButton" Style="{StaticResource OverlayButton}"
+                            Content="▶" ToolTip="Play / pause" Click="OverlayPlayPauseButton_OnClick" />
+                    <Button x:Name="LockButton" Style="{StaticResource OverlayButton}"
+                            Content="🔒" ToolTip="Unlock position and appearance" Click="LockButton_OnClick" />
+
+                    <StackPanel x:Name="AppearanceControls" Orientation="Horizontal">
+                        <Separator Margin="5,2" />
+                        <ComboBox x:Name="FontFamilyBox" Style="{StaticResource OverlayComboBox}"
+                                  Width="150" Height="28" Margin="2"
+                                  ToolTip="Font" SelectionChanged="FontFamilyBox_OnSelectionChanged"
+                                  DropDownClosed="FontFamilyBox_OnDropDownClosed" />
+                        <Button Style="{StaticResource OverlayButton}" Content="−" ToolTip="Smaller text"
+                                Click="DecreaseFontSize_OnClick" />
+                        <TextBlock x:Name="ToolbarFontSizeText" Text="52" Width="32"
+                                   TextAlignment="Center" VerticalAlignment="Center" />
+                        <Button Style="{StaticResource OverlayButton}" Content="+" ToolTip="Larger text"
+                                Click="IncreaseFontSize_OnClick" />
+                        <Button x:Name="TextColorButton" Style="{StaticResource OverlayButton}" Content="A"
+                                FontWeight="Bold" ToolTip="Text color palette" Click="TextColorButton_OnClick" />
+                        <Button x:Name="ShadowButton" Style="{StaticResource OverlayButton}"
+                                Content="◐" FontSize="18" ToolTip="Text shadow strength"
+                                Click="ShadowButton_OnClick" />
+                    </StackPanel>
+
+                </StackPanel>
+            </Border>
+
+            <Button x:Name="CloseOverlayButton" Grid.Row="0"
+                    Style="{StaticResource OverlayCloseButton}"
+                    Margin="0,-10,-10,0"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Top"
+                    Visibility="Collapsed"
+                    ToolTip="Hide subtitles"
+                    Click="CloseOverlayButton_OnClick" />
+
+            <Popup x:Name="ColorPopup"
+                   PlacementTarget="{Binding ElementName=TextColorButton}"
+                   Placement="Bottom"
+                   StaysOpen="False"
+                   AllowsTransparency="True"
+                   Closed="AppearancePopup_OnClosed">
+                <Border Background="#FF111827" BorderBrush="#FF6B7280" BorderThickness="1"
+                        CornerRadius="7" Padding="10">
+                    <StackPanel>
+                        <TextBlock Text="Standard subtitle colors" FontSize="12" Margin="2,0,2,6" />
+                        <WrapPanel Width="272">
+                            <Button Style="{StaticResource PaletteButton}" Background="#FFFFFFFF"
+                                    Tag="#FFFFFF" ToolTip="White" Click="PaletteColorButton_OnClick" />
+                            <Button Style="{StaticResource PaletteButton}" Background="#FFFFFF00"
+                                    Tag="#FFFF00" ToolTip="Yellow" Click="PaletteColorButton_OnClick" />
+                            <Button Style="{StaticResource PaletteButton}" Background="#FF00FFFF"
+                                    Tag="#00FFFF" ToolTip="Cyan" Click="PaletteColorButton_OnClick" />
+                            <Button Style="{StaticResource PaletteButton}" Background="#FF00FF00"
+                                    Tag="#00FF00" ToolTip="Lime / caption green" Click="PaletteColorButton_OnClick" />
+                            <Button Style="{StaticResource PaletteButton}" Background="#FFFF00FF"
+                                    Tag="#FF00FF" ToolTip="Magenta" Click="PaletteColorButton_OnClick" />
+                            <Button Style="{StaticResource PaletteButton}" Background="#FFFF0000"
+                                    Tag="#FF0000" ToolTip="Red" Click="PaletteColorButton_OnClick" />
+                            <Button Style="{StaticResource PaletteButton}" Background="#FF0000FF"
+                                    Tag="#0000FF" ToolTip="Blue" Click="PaletteColorButton_OnClick" />
+                            <Button Style="{StaticResource PaletteButton}" Background="#FF000000"
+                                    Tag="#000000" ToolTip="Black" Click="PaletteColorButton_OnClick" />
+                        </WrapPanel>
+                        <TextBlock Text="Custom hex color" FontSize="12" Margin="2,7,2,4" />
+                        <StackPanel Orientation="Horizontal">
+                            <TextBox x:Name="HexColorTextBox" Width="100" Height="27"
+                                     Text="#FFFFFF" MaxLength="9" Padding="6,3"
+                                     Background="White" Foreground="#FF111827"
+                                     KeyDown="HexColorTextBox_OnKeyDown" />
+                            <Button Style="{StaticResource OverlayButton}" Content="Apply"
+                                    Click="ApplyHexColor_OnClick" />
+                            <Button Style="{StaticResource OverlayButton}" Content="More…"
+                                    Click="MoreColors_OnClick" />
+                        </StackPanel>
+                        <TextBlock x:Name="ColorValidationText" Foreground="#FFFCA5A5"
+                                   FontSize="11" Margin="2,4,2,0" Visibility="Collapsed" />
+                    </StackPanel>
+                </Border>
+            </Popup>
+
+            <Popup x:Name="ShadowPopup"
+                   PlacementTarget="{Binding ElementName=ShadowButton}"
+                   Placement="Bottom"
+                   StaysOpen="False"
+                   AllowsTransparency="True"
+                   Closed="AppearancePopup_OnClosed">
+                <Border Background="#FF111827" BorderBrush="#FF6B7280" BorderThickness="1"
+                        CornerRadius="7" Padding="10">
+                    <StackPanel>
+                        <TextBlock Text="Text shadow strength" FontSize="12" Margin="2,0,2,6" />
+                        <StackPanel Orientation="Horizontal">
+                            <Slider x:Name="ShadowSlider" Width="130" Minimum="0" Maximum="100"
+                                    VerticalAlignment="Center" ValueChanged="ShadowSlider_OnValueChanged"
+                                    ToolTip="Text shadow strength" />
+                            <TextBlock x:Name="ShadowValueText" Text="100%" Width="38"
+                                       TextAlignment="Right" VerticalAlignment="Center" FontSize="12" />
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+            </Popup>
+
+            <ResizeGrip x:Name="OverlayResizeGrip" Grid.Row="1"
+                        Width="22" Height="22"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Bottom"
+                        Cursor="SizeNWSE"
+                        Visibility="Collapsed"
+                        PreviewMouseLeftButtonDown="OverlayResizeGrip_OnPreviewMouseLeftButtonDown"
+                        ToolTip="Drag to resize" />
+        </Grid>
+    </Border>
+</Window>

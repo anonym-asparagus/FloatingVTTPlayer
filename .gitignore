@@ -1,0 +1,13 @@
+# .NET build output
+/bin/
+/obj/
+
+# Published executables and local backups
+/publish/
+/publish-*/
+
+# IDE and test artifacts
+/.vs/
+/TestResults/
+*.user
+*.suo
