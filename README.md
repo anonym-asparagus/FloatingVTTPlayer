@@ -1,5 +1,7 @@
 # Floating VTT Player
 
+[English](README.md) | [简体中文](README.zh-CN.md)
+
 A Windows audio player for MP3/WAV folders with same-name WebVTT subtitles and a transparent, always-on-top desktop subtitle overlay.
 
 Builds require the .NET 8 SDK on Windows. The published Windows x64 executable is
