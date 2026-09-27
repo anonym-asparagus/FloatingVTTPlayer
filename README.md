@@ -6,6 +6,15 @@
 
 A Windows and macOS audio player for MP3/WAV folders with same-name WebVTT subtitles and a transparent, floating desktop subtitle overlay.
 
+## Downloads
+
+- [Windows x64 executable](https://github.com/anonym-asparagus/FloatingVTTPlayer/releases/download/v0.1.0/FloatingVttPlayer.exe)
+- [macOS 14+ universal ZIP](https://github.com/anonym-asparagus/FloatingVTTPlayer/releases/download/v0.2.0/FloatingVTTPlayer-macOS-universal.zip)
+
+Unzip the macOS download and move **Floating VTT Player.app** to Applications.
+This build is ad hoc signed and not notarized. If macOS blocks the first launch,
+follow [Apple's instructions for opening an unnotarized app](https://support.apple.com/en-us/102445).
+
 ## macOS
 
 The native macOS app is in [`Mac/FloatingVTTPlayerMac.xcodeproj`](Mac/FloatingVTTPlayerMac.xcodeproj).
@@ -52,8 +61,8 @@ swiftc Mac/FloatingVTTPlayerMac/Core.swift Mac/Tests/CoreChecks.swift \
 ```
 
 The macOS app stores settings in its own preferences and does not read the
-Windows `%APPDATA%` settings file. For distribution outside Xcode, sign and
-notarize the macOS app with your Apple Developer identity.
+Windows `%APPDATA%` settings file. A future distribution build should be signed
+with a Developer ID certificate and notarized.
 
 ## Windows
 

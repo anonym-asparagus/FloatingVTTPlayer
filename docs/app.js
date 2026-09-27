@@ -1,19 +1,21 @@
 (() => {
   const translations = {
     en: {
-      title: "Floating VTT Player — Download for Windows",
-      description: "Download Floating VTT Player for Windows. Play MP3 and WAV audio with floating WebVTT subtitles—no .NET setup required.",
+      title: "Floating VTT Player — Download for Windows and macOS",
+      description: "Download Floating VTT Player for Windows or macOS. Play MP3 and WAV audio with floating WebVTT subtitles.",
       navHow: "How it works", kicker: "A little window for the words",
       heroTitle: "Let the words<br>float.",
       heroDescription: "Play your audio with subtitles that stay in view.",
-      downloadWindows: "Download for Windows", macSoon: "macOS · Coming soon",
-      releaseDetail: "Windows x64 · Self-contained .exe · No .NET setup",
+      downloadWindows: "Download for Windows", downloadMac: "Download for macOS",
+      releaseDetail: "Windows x64 .exe · macOS 14+ universal .zip",
+      macNote: "The macOS build is not notarized yet. If macOS blocks it, follow ",
+      macHelp: "Apple's opening instructions.",
       previewTrack: "Now playing", previewSubtitle: "Music makes a brighter day.",
       heroTail: "A small player for the moments that matter.",
       howTitle: "Your audio, your subtitles.",
       howIntro: "Everything begins with one folder on your computer.",
       stepOneTitle: "Download and open",
-      stepOneBody: "Run the Windows app directly. No .NET installation or build tools needed.",
+      stepOneBody: "Choose the Windows or macOS download. No build tools needed.",
       stepTwoTitle: "Choose a folder",
       stepTwoBody: "Keep MP3 or WAV files beside their matching .vtt subtitle files.",
       stepThreeTitle: "Listen your way",
@@ -21,24 +23,26 @@
       footerText: "Made for listening with words in view.",
       releaseNotes: "Release notes", readme: "Read the guide",
       downloadAria: "Download Floating VTT Player for Windows x64",
-      macAria: "macOS version coming soon",
+      macAria: "Download Floating VTT Player for macOS 14 or later",
       previewAria: "Illustration of the audio player and floating subtitle window",
       navAria: "Main navigation", langAria: "Website language"
     },
     zh: {
-      title: "Floating VTT Player — 下载 Windows 版",
-      description: "下载 Floating VTT Player Windows 版。播放 MP3、WAV 音频，显示悬浮 WebVTT 字幕，无需安装 .NET 或自行编译。",
+      title: "Floating VTT Player — 下载 Windows 和 macOS 版",
+      description: "下载 Floating VTT Player Windows 或 macOS 版。播放 MP3、WAV 音频，并显示悬浮 WebVTT 字幕。",
       navHow: "使用方法", kicker: "让文字陪着声音",
       heroTitle: "让字幕<br>轻轻浮现。",
       heroDescription: "播放喜爱的音频，让字幕始终陪在屏幕上。",
-      downloadWindows: "下载 Windows 版", macSoon: "macOS · 即将推出",
-      releaseDetail: "Windows x64 · 独立 .exe · 无需安装 .NET",
+      downloadWindows: "下载 Windows 版", downloadMac: "下载 macOS 版",
+      releaseDetail: "Windows x64 .exe · macOS 14+ 通用 .zip",
+      macNote: "macOS 版本尚未经过 Apple 公证。如被系统拦截，请参阅",
+      macHelp: "Apple 的打开说明。",
       previewTrack: "正在播放", previewSubtitle: "让音乐与文字一起流动。",
       heroTail: "一方小小播放器，陪你沉浸聆听。",
       howTitle: "你的音频，你的字幕。",
       howIntro: "把文件放在同一个文件夹，就可以开始。",
       stepOneTitle: "下载并打开",
-      stepOneBody: "直接运行 Windows 程序，无需安装 .NET 或编译工具。",
+      stepOneBody: "选择 Windows 或 macOS 版本下载，无需自行编译。",
       stepTwoTitle: "选择文件夹",
       stepTwoBody: "将 MP3 或 WAV 音频与对应的 .vtt 字幕放在一起。",
       stepThreeTitle: "自在聆听",
@@ -46,7 +50,7 @@
       footerText: "让声音与文字，一起陪伴你的聆听。",
       releaseNotes: "版本说明", readme: "阅读使用指南",
       downloadAria: "下载 Floating VTT Player Windows x64 版",
-      macAria: "macOS 版本即将推出",
+      macAria: "下载适用于 macOS 14 或更新版本的 Floating VTT Player",
       previewAria: "音频播放器与悬浮字幕窗口示意图",
       navAria: "主导航", langAria: "网站语言"
     }
@@ -71,6 +75,9 @@
     document.querySelector("#readme-link").href = lang === "zh"
       ? "https://github.com/anonym-asparagus/FloatingVTTPlayer/blob/main/README.zh-CN.md"
       : "https://github.com/anonym-asparagus/FloatingVTTPlayer/blob/main/README.md";
+    document.querySelector("#mac-help-link").href = lang === "zh"
+      ? "https://support.apple.com/zh-cn/102445"
+      : "https://support.apple.com/en-us/102445";
     languageButtons.forEach((button) => button.setAttribute("aria-pressed", String(button.dataset.lang === lang)));
     try { localStorage.setItem("floating-vtt-site-lang", lang); } catch (_) { /* Storage may be unavailable. */ }
   }

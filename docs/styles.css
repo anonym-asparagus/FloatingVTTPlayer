@@ -189,13 +189,16 @@ h1, h2, h3, p { margin-top: 0; }
 .windows-mark { width: 23px; height: 23px; flex: none; }
 .button-arrow { width: 20px; height: 20px; flex: none; margin-left: 3px; }
 .mac-option {
-  color: #8897b2;
-  background: rgba(255,255,255,.62);
-  border: 1px solid #cbd6e8;
-  box-shadow: 0 5px 18px rgba(82, 112, 170, .035);
-  cursor: not-allowed;
+  color: #2853d0;
+  background: rgba(255,255,255,.82);
+  border: 1px solid #91aaf2;
+  box-shadow: 0 8px 20px rgba(53, 100, 239, .08);
+  transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
 }
+.mac-option:hover { transform: translateY(-3px); background: #fff; box-shadow: 0 15px 27px rgba(53, 100, 239, .14); }
+.mac-option:active { transform: translateY(-1px); }
 .mac-option svg { width: 25px; height: 25px; flex: none; }
+.mac-option .button-arrow { width: 20px; height: 20px; }
 .release-detail {
   display: flex;
   align-items: center;
@@ -206,6 +209,8 @@ h1, h2, h3, p { margin-top: 0; }
   line-height: 1.45;
 }
 .release-dot { width: 6px; height: 6px; border-radius: 50%; background: #57bfe8; flex: none; }
+.mac-note { margin: 9px 0 0 16px; color: #7786a3; font-size: .79rem; line-height: 1.5; }
+.mac-note a { color: #2853d0; text-decoration: underline; text-underline-offset: 2px; }
 
 .product-preview {
   position: relative;

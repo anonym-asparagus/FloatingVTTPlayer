@@ -2,9 +2,30 @@
 
 [English](README.md) | [简体中文](README.zh-CN.md)
 
-**直接下载 Windows 版：**[Floating VTT Player 官网](https://anonym-asparagus.github.io/FloatingVTTPlayer/)。无需安装 .NET，也不用自行编译。macOS 版本将在之后推出。
+**下载 Windows 或 macOS 版：**[Floating VTT Player 官网](https://anonym-asparagus.github.io/FloatingVTTPlayer/)。
 
-一款 Windows 音频播放器，可播放文件夹中的 MP3/WAV 文件，并显示与音频文件同名的 WebVTT 字幕。字幕显示在透明、始终置顶的桌面悬浮窗中。
+一款适用于 Windows 和 macOS 的音频播放器，可播放文件夹中的 MP3/WAV 文件，并显示与音频文件同名的 WebVTT 字幕。字幕显示在透明、始终置顶的桌面悬浮窗中。
+
+## 下载
+
+- [Windows x64 独立程序](https://github.com/anonym-asparagus/FloatingVTTPlayer/releases/download/v0.1.0/FloatingVttPlayer.exe)
+- [macOS 14+ 通用 ZIP 压缩包](https://github.com/anonym-asparagus/FloatingVTTPlayer/releases/download/v0.2.0/FloatingVTTPlayer-macOS-universal.zip)
+
+解压 macOS 压缩包后，将 **Floating VTT Player.app** 移到“应用程序”文件夹。当前版本仅使用临时签名，尚未经过 Apple 公证。如果 macOS 阻止首次打开，请参阅 [Apple 的打开说明](https://support.apple.com/zh-cn/102445)。
+
+## macOS
+
+macOS 原生项目位于 [`Mac/FloatingVTTPlayerMac.xcodeproj`](Mac/FloatingVTTPlayerMac.xcodeproj)，需要 macOS 14 或更新版本。使用 Xcode 16 或更新版本打开项目，或在终端运行：
+
+```sh
+xcodebuild -project Mac/FloatingVTTPlayerMac.xcodeproj \
+  -scheme FloatingVTTPlayerMac -configuration Release \
+  -destination 'generic/platform=macOS' build
+```
+
+在 **All Files** 中添加音频文件夹；播放器会记住文件夹。播放时会自动显示悬浮字幕窗。右上角的太阳/月亮按钮可切换深色和浅色主题。
+
+## Windows
 
 在 Windows 上构建本项目需要 .NET 8 SDK。发布的 Windows x64 可执行文件是自包含版本，运行时无需另行安装 .NET 运行时。
 

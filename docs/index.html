@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#f8fbff">
-  <meta name="description" content="Download Floating VTT Player for Windows. Play MP3 and WAV audio with floating WebVTT subtitles—no .NET setup required.">
-  <title>Floating VTT Player — Download for Windows</title>
+  <meta name="description" content="Download Floating VTT Player for Windows or macOS. Play MP3 and WAV audio with floating WebVTT subtitles.">
+  <title>Floating VTT Player — Download for Windows and macOS</title>
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230d1833'/%3E%3Cpath d='M41 12v30.5a8.5 8.5 0 1 1-5-7.7V20l-15 3v23.5a8.5 8.5 0 1 1-5-7.7V19l25-7Z' fill='%235685ff'/%3E%3C/svg%3E">
   <link rel="stylesheet" href="styles.css">
   <script src="app.js" defer></script>
@@ -54,12 +54,14 @@
               <span data-i18n="downloadWindows">Download for Windows</span>
               <svg class="button-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </a>
-            <div class="mac-option" aria-label="macOS version coming soon">
+            <a class="mac-option" href="https://github.com/anonym-asparagus/FloatingVTTPlayer/releases/download/v0.2.0/FloatingVTTPlayer-macOS-universal.zip" aria-label="Download Floating VTT Player for macOS 14 or later">
               <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7.3 4.5h9.4a2 2 0 0 1 2 2v8.8H5.3V6.5a2 2 0 0 1 2-2Zm-4 13.6h17.4l-1.1 1.4H4.4l-1.1-1.4Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
-              <span data-i18n="macSoon">macOS · Coming soon</span>
-            </div>
+              <span data-i18n="downloadMac">Download for macOS</span>
+              <svg class="button-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
           </div>
-          <p class="release-detail"><span class="release-dot" aria-hidden="true"></span><span data-i18n="releaseDetail">Windows x64 · Self-contained .exe · No .NET setup</span></p>
+          <p class="release-detail"><span class="release-dot" aria-hidden="true"></span><span data-i18n="releaseDetail">Windows x64 .exe · macOS 14+ universal .zip</span></p>
+          <p class="mac-note"><span data-i18n="macNote">The macOS build is not notarized yet. If macOS blocks it, follow </span><a id="mac-help-link" href="https://support.apple.com/en-us/102445" target="_blank" rel="noopener noreferrer" data-i18n="macHelp">Apple's opening instructions.</a></p>
         </div>
         <div class="product-preview" role="img" aria-label="Illustration of the audio player and floating subtitle window">
           <div class="player-window">
@@ -84,7 +86,7 @@
       <section id="how-it-works" class="how-section" aria-labelledby="how-title">
         <div class="section-heading"><p class="section-index">01 / 03</p><div><h2 id="how-title" data-i18n="howTitle">Your audio, your subtitles.</h2><p data-i18n="howIntro">Everything begins with one folder on your computer.</p></div></div>
         <div class="steps-grid">
-          <article class="step-card"><span class="step-number">01</span><span class="step-icon" aria-hidden="true">↓</span><h3 data-i18n="stepOneTitle">Download and open</h3><p data-i18n="stepOneBody">Run the Windows app directly. No .NET installation or build tools needed.</p></article>
+          <article class="step-card"><span class="step-number">01</span><span class="step-icon" aria-hidden="true">↓</span><h3 data-i18n="stepOneTitle">Download and open</h3><p data-i18n="stepOneBody">Choose the Windows or macOS download. No build tools needed.</p></article>
           <article class="step-card"><span class="step-number">02</span><span class="step-icon" aria-hidden="true">⌕</span><h3 data-i18n="stepTwoTitle">Choose a folder</h3><p data-i18n="stepTwoBody">Keep MP3 or WAV files beside their matching .vtt subtitle files.</p></article>
           <article class="step-card"><span class="step-number">03</span><span class="step-icon" aria-hidden="true">♫</span><h3 data-i18n="stepThreeTitle">Listen your way</h3><p data-i18n="stepThreeBody">Move, resize, and style the floating subtitles while the audio plays.</p></article>
         </div>
@@ -93,7 +95,7 @@
     <footer class="site-footer">
       <a class="footer-brand" href="#top">Floating VTT Player</a>
       <p data-i18n="footerText">Made for listening with words in view.</p>
-      <div class="footer-links"><a href="https://github.com/anonym-asparagus/FloatingVTTPlayer/releases/tag/v0.1.0" target="_blank" rel="noopener noreferrer" data-i18n="releaseNotes">Release notes</a><a id="readme-link" href="https://github.com/anonym-asparagus/FloatingVTTPlayer#readme" target="_blank" rel="noopener noreferrer" data-i18n="readme">Read the guide</a></div>
+      <div class="footer-links"><a href="https://github.com/anonym-asparagus/FloatingVTTPlayer/releases" target="_blank" rel="noopener noreferrer" data-i18n="releaseNotes">Release notes</a><a id="readme-link" href="https://github.com/anonym-asparagus/FloatingVTTPlayer#readme" target="_blank" rel="noopener noreferrer" data-i18n="readme">Read the guide</a></div>
     </footer>
   </div>
 </body>
