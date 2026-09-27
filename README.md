@@ -2,9 +2,60 @@
 
 [English](README.md) | [简体中文](README.zh-CN.md)
 
-**Download the ready-to-run Windows app:** [Floating VTT Player website](https://anonym-asparagus.github.io/FloatingVTTPlayer/). No .NET installation or build tools are needed. A macOS version is planned.
+**Download the apps:** [Floating VTT Player website](https://anonym-asparagus.github.io/FloatingVTTPlayer/).
 
-A Windows audio player for MP3/WAV folders with same-name WebVTT subtitles and a transparent, always-on-top desktop subtitle overlay.
+A Windows and macOS audio player for MP3/WAV folders with same-name WebVTT subtitles and a transparent, floating desktop subtitle overlay.
+
+## macOS
+
+The native macOS app is in [`Mac/FloatingVTTPlayerMac.xcodeproj`](Mac/FloatingVTTPlayerMac.xcodeproj).
+It requires macOS 14 or later and Xcode 16 or later to build. Open the project in
+Xcode and run the `FloatingVTTPlayerMac` scheme, or build from a terminal:
+
+```sh
+xcodebuild -project Mac/FloatingVTTPlayerMac.xcodeproj \
+  -scheme FloatingVTTPlayerMac -configuration Release \
+  -destination 'generic/platform=macOS' build
+```
+
+Open **All Files** and use **Add Folder** to import one or more audio folders.
+The app remembers folders using security-scoped bookmarks. The player uses a
+titlebar-free window with native macOS controls in its upper-left corner.
+Select a folder to see
+only its tracks; the Tracks area stays empty when no folder is selected. Use
+Recently Added, Favorites, personal playlists, and the filename search to find
+tracks across folders. The sun/moon button beside search switches between saved
+dark and light themes. Playlists start empty until you create one.
+Use **Select Folders** in All Files to remove several library entries at once;
+the **Remove** button confirms the selected count before removal, and files on
+disk remain in place. Use the pencil on a folder card to rename its
+library label. Right-click a track to add it to a playlist. The speaker icon
+opens a vertical volume control. The expand icon beside it opens a full-window
+scrolling subtitle view. The active VTT cue follows playback; click any line to
+seek to it. The back chevron returns to the library page you were viewing.
+The floating subtitle icon beside the speaker hides or restores the desktop
+subtitle window. Press Space in the active player window to pause or resume;
+Space still types normally while editing the filename search.
+
+Playback opens the floating subtitle window automatically. Its background is
+transparent until you hover over it while unlocked. Locking keeps the background
+transparent and hides the appearance and resize controls. The toolbar hides
+when the pointer leaves in either mode. Use the subtitle
+window's close button to dismiss it, or close the player window to keep playback
+available from the menu bar.
+
+To run the parser and matching checks without launching the app:
+
+```sh
+swiftc Mac/FloatingVTTPlayerMac/Core.swift Mac/Tests/CoreChecks.swift \
+  -o /tmp/floating-vtt-core-checks && /tmp/floating-vtt-core-checks
+```
+
+The macOS app stores settings in its own preferences and does not read the
+Windows `%APPDATA%` settings file. For distribution outside Xcode, sign and
+notarize the macOS app with your Apple Developer identity.
+
+## Windows
 
 Builds require the .NET 8 SDK on Windows. The published Windows x64 executable is
 self-contained and does not require a separate .NET runtime installation.

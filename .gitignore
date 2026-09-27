@@ -11,3 +11,9 @@
 /TestResults/
 *.user
 *.suo
+*.xcuserstate
+*.xcuserdata/
+**/.DS_Store
+/test_audio/
+/Mac/.build/
+/Mac/dist/
