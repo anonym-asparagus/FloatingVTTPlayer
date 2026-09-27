@@ -3,99 +3,107 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#f8fbff">
-  <meta name="description" content="Download Floating VTT Player for Windows or macOS. Play MP3 and WAV audio with floating WebVTT subtitles.">
-  <title>Floating VTT Player — Download for Windows and macOS</title>
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230d1833'/%3E%3Cpath d='M41 12v30.5a8.5 8.5 0 1 1-5-7.7V20l-15 3v23.5a8.5 8.5 0 1 1-5-7.7V19l25-7Z' fill='%235685ff'/%3E%3C/svg%3E">
+  <meta name="theme-color" content="#f7f9fc">
+  <meta name="description" content="Download Floating VTT Player for macOS or Windows. Play local audio with synced WebVTT subtitles in a floating window.">
+  <title>Floating VTT Player — Listen with words in view</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23121b2b'/%3E%3Cpath d='M41 12v30.5a8.5 8.5 0 1 1-5-7.7V20l-15 3v23.5a8.5 8.5 0 1 1-5-7.7V19l25-7Z' fill='%233f63db'/%3E%3C/svg%3E">
+  <link rel="preload" href="fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="styles.css">
   <script src="app.js" defer></script>
 </head>
 <body>
-  <div class="atmosphere" aria-hidden="true">
-    <div class="ambient-light"></div><div class="dot-field dot-field-left"></div><div class="dot-field dot-field-right"></div>
-    <svg class="contour contour-top" viewBox="0 0 1440 530" preserveAspectRatio="none">
-      <path d="M-110 240C120 60 260 85 428 160S710 292 918 160s370-218 640-40"/>
-      <path d="M-110 270C120 90 260 115 428 190S710 322 918 190s370-218 640-10"/>
-      <path d="M-110 300C120 120 260 145 428 220S710 352 918 220s370-218 640 20"/>
-    </svg>
-    <svg class="contour contour-bottom" viewBox="0 0 1440 380" preserveAspectRatio="none">
-      <path d="M-130 165C100 315 288 72 480 180s288 158 468 42 330-64 610 130"/>
-      <path d="M-130 184C100 334 288 91 480 199s288 158 468 42 330-64 610 130"/>
-      <path d="M-130 203C100 353 288 110 480 218s288 158 468 42 330-64 610 130"/>
-      <path d="M-130 222C100 372 288 129 480 237s288 158 468 42 330-64 610 130"/>
-      <path d="M-130 241C100 391 288 148 480 256s288 158 468 42 330-64 610 130"/>
-      <path d="M-130 260C100 410 288 167 480 275s288 158 468 42 330-64 610 130"/>
-    </svg>
-    <canvas id="particle-canvas"></canvas>
-  </div>
-  <div class="page-shell" id="top">
+  <canvas id="motion-canvas" aria-hidden="true"></canvas>
+  <div class="site-shell" id="top">
     <header class="site-header">
       <a class="brand" href="#top" aria-label="Floating VTT Player home">
-        <span class="brand-icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none"><path d="M22.5 4.5v16.7a4.7 4.7 0 1 1-3.3-4.5V9.1l-9 2.1v13a4.7 4.7 0 1 1-3.3-4.5V8.8l15.6-4.3Z" fill="currentColor"/></svg></span>
+        <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
         <span>Floating VTT Player</span>
       </a>
-      <nav class="site-nav" aria-label="Main navigation">
-        <a href="#how-it-works" data-i18n="navHow">How it works</a>
-        <a href="https://github.com/anonym-asparagus/FloatingVTTPlayer" target="_blank" rel="noopener noreferrer">GitHub <span class="external-mark" aria-hidden="true">↗</span></a>
-      </nav>
-      <div class="language-switch" role="group" aria-label="Website language">
-        <button type="button" data-lang="en" aria-pressed="true">EN</button><span aria-hidden="true">/</span><button type="button" data-lang="zh" aria-pressed="false">中文</button>
+      <div class="header-actions">
+        <nav class="site-nav" aria-label="Main navigation">
+          <a href="#how-it-works" data-i18n="navHow">How it works</a>
+          <a href="https://github.com/anonym-asparagus/FloatingVTTPlayer" target="_blank" rel="noopener noreferrer">GitHub<span class="external-mark" aria-hidden="true">↗</span></a>
+        </nav>
+        <div class="language-switch" role="group" aria-label="Website language">
+          <button type="button" data-lang="en" aria-pressed="true">EN</button>
+          <span class="language-divider" aria-hidden="true">/</span>
+          <button type="button" data-lang="zh" aria-pressed="false">中文</button>
+        </div>
       </div>
     </header>
+
     <main>
       <section class="hero" aria-labelledby="hero-title">
         <div class="hero-copy">
-          <p class="kicker"><span class="kicker-line"></span><span data-i18n="kicker">A little window for the words</span></p>
-          <h1 id="hero-title" data-i18n="heroTitle">Let the words<br>float.</h1>
-          <p class="hero-description" data-i18n="heroDescription">Play your audio with subtitles that stay in view.</p>
+          <h1 id="hero-title"><span data-i18n="heroLineOne">Listen with</span><br><span data-i18n="heroLineTwo">words in view.</span></h1>
+          <p class="hero-description" data-i18n="heroDescription">Local audio. Synced subtitles.<br>A little window that stays with you.</p>
           <div class="platform-actions">
-            <a class="download-button" href="https://github.com/anonym-asparagus/FloatingVTTPlayer/releases/download/v0.1.0/FloatingVttPlayer.exe" aria-label="Download Floating VTT Player for Windows x64">
-              <svg class="windows-mark" viewBox="0 0 24 24" aria-hidden="true"><path d="M1.5 4.1 10.8 2.8v8.3H1.5V4.1Zm11.2-1.6L22.5 1v10.1h-9.8V2.5ZM1.5 12.9h9.3v8.3L1.5 19.9v-7Zm11.2 0h9.8V23l-9.8-1.5v-8.6Z" fill="currentColor"/></svg>
-              <span data-i18n="downloadWindows">Download for Windows</span>
-              <svg class="button-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </a>
-            <a class="mac-option" href="https://github.com/anonym-asparagus/FloatingVTTPlayer/releases/download/v0.2.0/FloatingVTTPlayer-macOS-universal.zip" aria-label="Download Floating VTT Player for macOS 14 or later">
-              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7.3 4.5h9.4a2 2 0 0 1 2 2v8.8H5.3V6.5a2 2 0 0 1 2-2Zm-4 13.6h17.4l-1.1 1.4H4.4l-1.1-1.4Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
+            <a class="download-button mac-option" href="https://github.com/anonym-asparagus/FloatingVTTPlayer/releases/download/v0.2.0/FloatingVTTPlayer-macOS-universal.zip" aria-label="Download Floating VTT Player for macOS 14 or later">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 4.5h10a2 2 0 0 1 2 2v9H5v-9a2 2 0 0 1 2-2Z M3.5 18.5h17l-1.3 1.3H4.8l-1.3-1.3Z" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"/></svg>
               <span data-i18n="downloadMac">Download for macOS</span>
-              <svg class="button-arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <a class="download-button windows-option" href="https://github.com/anonym-asparagus/FloatingVTTPlayer/releases/download/v0.1.0/FloatingVttPlayer.exe" aria-label="Download Floating VTT Player for Windows x64">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 4.5 10.7 3v8.2H2V4.5Zm10.5-1.8L22 1.3v9.9h-9.5V2.7ZM2 13h8.7v8.2L2 19.8V13Zm10.5 0H22v9.7l-9.5-1.5V13Z" fill="currentColor"/></svg>
+              <span data-i18n="downloadWindows">Download for Windows</span>
             </a>
           </div>
-          <p class="release-detail"><span class="release-dot" aria-hidden="true"></span><span data-i18n="releaseDetail">Windows x64 .exe · macOS 14+ universal .zip</span></p>
+          <p class="release-detail" data-i18n="releaseDetail">macOS 14+ universal ZIP · Windows x64 EXE</p>
           <p class="mac-note"><span data-i18n="macNote">The macOS build is not notarized yet. If macOS blocks it, follow </span><a id="mac-help-link" href="https://support.apple.com/en-us/102445" target="_blank" rel="noopener noreferrer" data-i18n="macHelp">Apple's opening instructions.</a></p>
         </div>
+
         <div class="product-preview" role="img" aria-label="Illustration of the audio player and floating subtitle window">
-          <div class="player-window">
-            <div class="player-titlebar"><span class="player-title"><svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M22.5 4.5v16.7a4.7 4.7 0 1 1-3.3-4.5V9.1l-9 2.1v13a4.7 4.7 0 1 1-3.3-4.5V8.8l15.6-4.3Z" fill="currentColor"/></svg>Floating VTT Player</span><span class="window-dots" aria-hidden="true"><i></i><i></i><i></i></span></div>
-            <div class="player-content">
-              <div class="track-heading"><span class="track-pulse"></span><span data-i18n="previewTrack">Now playing</span></div>
-              <div class="progress-track"><span></span><i></i></div>
-              <div class="track-times"><span>00:32</span><span>02:17</span></div>
-              <div class="preview-controls" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M5 4h2v16H5zm14 0v16L8 12z"/></svg>
-                <span class="preview-play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 4.8v14.4L19 12 8 4.8Z"/></svg></span>
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17 4h2v16h-2zM5 4v16l11-8z"/></svg>
-                <span class="preview-volume"><svg viewBox="0 0 24 24" fill="none"><path d="M4 9h4l5-4v14l-5-4H4V9Zm12-1a6 6 0 0 1 0 8m2-11a10 10 0 0 1 0 14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><i></i></span>
+          <div class="preview-app">
+            <aside class="preview-sidebar" aria-hidden="true">
+              <div class="traffic-lights"><i></i><i></i><i></i></div>
+              <p class="preview-library-label" data-i18n="previewLibrary">Your Library</p>
+              <div class="preview-sidebar-row selected"><span class="sidebar-icon folder-icon"></span><span data-i18n="previewAllFiles">All Files</span></div>
+              <div class="preview-sidebar-row"><span class="sidebar-icon recent-icon"></span><span data-i18n="previewRecent">Recently Added</span></div>
+              <div class="preview-sidebar-row"><svg class="sidebar-icon heart-icon" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 17.2 3.1 10.8a4.2 4.2 0 0 1 5.9-6L10 6l1-1.2a4.2 4.2 0 0 1 5.9 6L10 17.2Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg><span data-i18n="previewFavorites">Favorite</span></div>
+            </aside>
+            <div class="preview-main" aria-hidden="true">
+              <div class="preview-topline"><span data-i18n="previewPlaying">Now playing</span><span class="preview-search"></span></div>
+              <div class="preview-track">
+                <div class="preview-art"><span class="art-bars"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></div>
+                <div class="preview-track-details">
+                  <strong>01.wav</strong><span class="preview-time">00:42 / 03:28</span>
+                  <div class="preview-progress"><span></span><i></i></div>
+                  <div class="preview-controls"><span class="skip previous"></span><span class="pause-control"><i></i><i></i></span><span class="skip next"></span><svg class="volume-glyph" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M3 8h3l4-3v10l-4-3H3V8Zm10-1a4 4 0 0 1 0 6m2-8a7 7 0 0 1 0 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="volume-line"></span></div>
+                </div>
               </div>
             </div>
           </div>
-          <div class="subtitle-window"><span class="subtitle-spark" aria-hidden="true">✦</span><span data-i18n="previewSubtitle">Music makes a brighter day.</span></div>
-          <div class="preview-orbit preview-orbit-one" aria-hidden="true"></div><div class="preview-orbit preview-orbit-two" aria-hidden="true"></div>
+          <div class="preview-subtitle" aria-hidden="true">
+            <div class="preview-subtitle-toolbar"><svg class="subtitle-pin" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M6 3h8l-1.3 5 2.3 2v1H5v-1l2.3-2L6 3Zm4 8v6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="previewSubtitleLabel">Subtitles (01.vtt)</span><span class="subtitle-toolbar-end"><i class="mini-minimize"></i><i class="mini-close"></i></span></div>
+            <p data-i18n="previewSubtitle">Music makes a brighter day.</p>
+          </div>
         </div>
       </section>
-      <div class="hero-tail"><span></span><p data-i18n="heroTail">A small player for the moments that matter.</p><span></span></div>
-      <section id="how-it-works" class="how-section" aria-labelledby="how-title">
-        <div class="section-heading"><p class="section-index">01 / 03</p><div><h2 id="how-title" data-i18n="howTitle">Your audio, your subtitles.</h2><p data-i18n="howIntro">Everything begins with one folder on your computer.</p></div></div>
-        <div class="steps-grid">
-          <article class="step-card"><span class="step-number">01</span><span class="step-icon" aria-hidden="true">↓</span><h3 data-i18n="stepOneTitle">Download and open</h3><p data-i18n="stepOneBody">Choose the Windows or macOS download. No build tools needed.</p></article>
-          <article class="step-card"><span class="step-number">02</span><span class="step-icon" aria-hidden="true">⌕</span><h3 data-i18n="stepTwoTitle">Choose a folder</h3><p data-i18n="stepTwoBody">Keep MP3 or WAV files beside their matching .vtt subtitle files.</p></article>
-          <article class="step-card"><span class="step-number">03</span><span class="step-icon" aria-hidden="true">♫</span><h3 data-i18n="stepThreeTitle">Listen your way</h3><p data-i18n="stepThreeBody">Move, resize, and style the floating subtitles while the audio plays.</p></article>
+
+      <section class="how-section" id="how-it-works" aria-labelledby="how-title">
+        <div class="how-heading"><h2 id="how-title" data-i18n="howTitle">A simple pair of files.</h2><p data-i18n="howIntro">Keep an audio file and its WebVTT subtitles together with the same name.</p></div>
+        <div class="how-demo">
+          <div class="file-pair" aria-label="01.wav plus 01.vtt">
+            <div class="file-item"><div class="file-sheet audio-sheet"><svg class="file-audio-mark" viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M23 5v17a4.5 4.5 0 1 1-3-4.2V9l-10 2v14a4.5 4.5 0 1 1-3-4.2V8l16-3Z" fill="currentColor"/></svg></div><span>01.wav</span></div>
+            <span class="pair-plus" aria-hidden="true">+</span>
+            <div class="file-item"><div class="file-sheet text-sheet"><i></i><i></i><i></i></div><span>01.vtt</span></div>
+          </div>
+          <svg class="flow-arrow" viewBox="0 0 52 24" fill="none" aria-hidden="true"><path d="M2 12h46m-9-9 9 9-9 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <div class="sync-result">
+            <h3 data-i18n="syncTitle">Audio and subtitles, together.</h3>
+            <p data-i18n="syncDescription">Play locally. See the words in sync, in a floating window.</p>
+            <div class="waveform-card" aria-hidden="true">
+              <div class="wave-bars" id="wave-bars"></div>
+              <div class="wave-bottom"><span>00:42</span><span data-i18n="previewSubtitle">Music makes a brighter day.</span><span>03:28</span></div>
+            </div>
+          </div>
         </div>
       </section>
     </main>
+
     <footer class="site-footer">
       <a class="footer-brand" href="#top">Floating VTT Player</a>
       <p data-i18n="footerText">Made for listening with words in view.</p>
-      <div class="footer-links"><a href="https://github.com/anonym-asparagus/FloatingVTTPlayer/releases" target="_blank" rel="noopener noreferrer" data-i18n="releaseNotes">Release notes</a><a id="readme-link" href="https://github.com/anonym-asparagus/FloatingVTTPlayer#readme" target="_blank" rel="noopener noreferrer" data-i18n="readme">Read the guide</a></div>
+      <div class="footer-links"><a href="https://github.com/anonym-asparagus/FloatingVTTPlayer/releases" target="_blank" rel="noopener noreferrer" data-i18n="releaseNotes">Release notes</a><a id="readme-link" href="https://github.com/anonym-asparagus/FloatingVTTPlayer/blob/main/README.md" target="_blank" rel="noopener noreferrer" data-i18n="readme">Read the guide</a></div>
     </footer>
   </div>
 </body>

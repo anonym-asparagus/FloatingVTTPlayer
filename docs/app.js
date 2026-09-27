@@ -1,60 +1,71 @@
 (() => {
   const translations = {
     en: {
-      title: "Floating VTT Player — Download for Windows and macOS",
-      description: "Download Floating VTT Player for Windows or macOS. Play MP3 and WAV audio with floating WebVTT subtitles.",
-      navHow: "How it works", kicker: "A little window for the words",
-      heroTitle: "Let the words<br>float.",
-      heroDescription: "Play your audio with subtitles that stay in view.",
-      downloadWindows: "Download for Windows", downloadMac: "Download for macOS",
-      releaseDetail: "Windows x64 .exe · macOS 14+ universal .zip",
+      title: "Floating VTT Player — Listen with words in view",
+      description: "Download Floating VTT Player for macOS or Windows. Play local audio with synced WebVTT subtitles in a floating window.",
+      navHow: "How it works",
+      heroLineOne: "Listen with",
+      heroLineTwo: "words in view.",
+      heroDescription: "Local audio. Synced subtitles. A little window that stays with you.",
+      downloadMac: "Download for macOS",
+      downloadWindows: "Download for Windows",
+      releaseDetail: "macOS 14+ universal ZIP · Windows x64 EXE",
       macNote: "The macOS build is not notarized yet. If macOS blocks it, follow ",
       macHelp: "Apple's opening instructions.",
-      previewTrack: "Now playing", previewSubtitle: "Music makes a brighter day.",
-      heroTail: "A small player for the moments that matter.",
-      howTitle: "Your audio, your subtitles.",
-      howIntro: "Everything begins with one folder on your computer.",
-      stepOneTitle: "Download and open",
-      stepOneBody: "Choose the Windows or macOS download. No build tools needed.",
-      stepTwoTitle: "Choose a folder",
-      stepTwoBody: "Keep MP3 or WAV files beside their matching .vtt subtitle files.",
-      stepThreeTitle: "Listen your way",
-      stepThreeBody: "Move, resize, and style the floating subtitles while the audio plays.",
+      previewLibrary: "Your Library",
+      previewAllFiles: "All Files",
+      previewRecent: "Recently Added",
+      previewFavorites: "Favorite",
+      previewPlaying: "Now playing",
+      previewSubtitleLabel: "Subtitles (01.vtt)",
+      previewSubtitle: "Music makes a brighter day.",
+      howTitle: "A simple pair of files.",
+      howIntro: "Keep an audio file and its WebVTT subtitles together with the same name.",
+      syncTitle: "Audio and subtitles, together.",
+      syncDescription: "Play locally. See the words in sync, in a floating window.",
       footerText: "Made for listening with words in view.",
-      releaseNotes: "Release notes", readme: "Read the guide",
-      downloadAria: "Download Floating VTT Player for Windows x64",
+      releaseNotes: "Release notes",
+      readme: "Read the guide",
       macAria: "Download Floating VTT Player for macOS 14 or later",
+      downloadAria: "Download Floating VTT Player for Windows x64",
       previewAria: "Illustration of the audio player and floating subtitle window",
-      navAria: "Main navigation", langAria: "Website language"
+      navAria: "Main navigation",
+      langAria: "Website language"
     },
     zh: {
-      title: "Floating VTT Player — 下载 Windows 和 macOS 版",
-      description: "下载 Floating VTT Player Windows 或 macOS 版。播放 MP3、WAV 音频，并显示悬浮 WebVTT 字幕。",
-      navHow: "使用方法", kicker: "让文字陪着声音",
-      heroTitle: "让字幕<br>轻轻浮现。",
-      heroDescription: "播放喜爱的音频，让字幕始终陪在屏幕上。",
-      downloadWindows: "下载 Windows 版", downloadMac: "下载 macOS 版",
-      releaseDetail: "Windows x64 .exe · macOS 14+ 通用 .zip",
+      title: "Floating VTT Player — 让声音与字幕同行",
+      description: "下载 Floating VTT Player macOS 或 Windows 版。播放本地音频，并在悬浮窗中同步显示 WebVTT 字幕。",
+      navHow: "使用方法",
+      heroLineOne: "聆听声音，",
+      heroLineTwo: "看见文字。",
+      heroDescription: "本地音频，同步字幕。一方小窗，始终相伴。",
+      downloadMac: "下载 macOS 版",
+      downloadWindows: "下载 Windows 版",
+      releaseDetail: "macOS 14+ 通用 ZIP · Windows x64 EXE",
       macNote: "macOS 版本尚未经过 Apple 公证。如被系统拦截，请参阅",
       macHelp: "Apple 的打开说明。",
-      previewTrack: "正在播放", previewSubtitle: "让音乐与文字一起流动。",
-      heroTail: "一方小小播放器，陪你沉浸聆听。",
-      howTitle: "你的音频，你的字幕。",
-      howIntro: "把文件放在同一个文件夹，就可以开始。",
-      stepOneTitle: "下载并打开",
-      stepOneBody: "选择 Windows 或 macOS 版本下载，无需自行编译。",
-      stepTwoTitle: "选择文件夹",
-      stepTwoBody: "将 MP3 或 WAV 音频与对应的 .vtt 字幕放在一起。",
-      stepThreeTitle: "自在聆听",
-      stepThreeBody: "边播放边移动、缩放字幕窗，还能调整字体和颜色。",
+      previewLibrary: "你的资料库",
+      previewAllFiles: "所有文件",
+      previewRecent: "最近添加",
+      previewFavorites: "收藏",
+      previewPlaying: "正在播放",
+      previewSubtitleLabel: "字幕 (01.vtt)",
+      previewSubtitle: "让音乐与文字一起流动。",
+      howTitle: "一对同名文件，轻松开始。",
+      howIntro: "将音频与对应的 WebVTT 字幕放在同一个文件夹，并保持文件名相同。",
+      syncTitle: "声音与字幕，恰好同步。",
+      syncDescription: "在本地播放音频，在悬浮窗中跟随字幕。",
       footerText: "让声音与文字，一起陪伴你的聆听。",
-      releaseNotes: "版本说明", readme: "阅读使用指南",
-      downloadAria: "下载 Floating VTT Player Windows x64 版",
+      releaseNotes: "版本说明",
+      readme: "阅读使用指南",
       macAria: "下载适用于 macOS 14 或更新版本的 Floating VTT Player",
+      downloadAria: "下载 Floating VTT Player Windows x64 版",
       previewAria: "音频播放器与悬浮字幕窗口示意图",
-      navAria: "主导航", langAria: "网站语言"
+      navAria: "主导航",
+      langAria: "网站语言"
     }
   };
+
   const languageButtons = [...document.querySelectorAll("[data-lang]")];
   function setLanguage(language) {
     const lang = translations[language] ? language : "en";
@@ -63,12 +74,10 @@
     document.title = copy.title;
     document.querySelector('meta[name="description"]').content = copy.description;
     document.querySelectorAll("[data-i18n]").forEach((element) => {
-      const key = element.dataset.i18n;
-      if (key === "heroTitle") element.innerHTML = copy[key];
-      else element.textContent = copy[key];
+      element.textContent = copy[element.dataset.i18n];
     });
-    document.querySelector(".download-button").setAttribute("aria-label", copy.downloadAria);
     document.querySelector(".mac-option").setAttribute("aria-label", copy.macAria);
+    document.querySelector(".windows-option").setAttribute("aria-label", copy.downloadAria);
     document.querySelector(".product-preview").setAttribute("aria-label", copy.previewAria);
     document.querySelector(".site-nav").setAttribute("aria-label", copy.navAria);
     document.querySelector(".language-switch").setAttribute("aria-label", copy.langAria);
@@ -86,14 +95,80 @@
   setLanguage(savedLanguage);
   languageButtons.forEach((button) => button.addEventListener("click", () => setLanguage(button.dataset.lang)));
 
-  const canvas = document.querySelector("#particle-canvas");
+  const waveform = document.querySelector("#wave-bars");
+  for (let index = 0; index < 92; index++) {
+    const bar = document.createElement("i");
+    const wave = Math.abs(Math.sin(index * .31) * Math.cos(index * .087));
+    const accent = index > 18 && index < 31 ? 1.35 : 1;
+    bar.style.setProperty("--h", `${Math.round(5 + wave * 43 * accent)}px`);
+    waveform.appendChild(bar);
+  }
+
+  const canvas = document.querySelector("#motion-canvas");
   const context = canvas.getContext("2d", { alpha: true });
+  if (!context) return;
   const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)");
   const coarsePointer = matchMedia("(pointer: coarse)");
-  const pointer = { x: -1000, y: -1000, lastMove: -Infinity };
-  const colors = ["66,115,244", "43,192,238", "120,106,238"];
-  let width = 0, height = 0, dpr = 1, frame = 0, particles = [], sparks = [], ripples = [], running = false;
+  const pointer = { x: -1000, y: -1000, drawnX: -1000, drawnY: -1000, lastMove: -Infinity, lastRipple: -Infinity };
+  const ripples = [];
+  let width = 0, height = 0, dpr = 1, frameId = 0;
+  const motionAllowed = () => !reducedMotion.matches && !coarsePointer.matches && !document.hidden;
 
+  function lineY(x, layer) {
+    const top = Math.min(height * .17, 175);
+    return top + layer * 19 + Math.sin(x / 178 + layer * .27) * 24 + Math.sin(x / 318 + .5) * 12;
+  }
+  function draw(now) {
+    frameId = 0;
+    context.clearRect(0, 0, width, height);
+    const active = motionAllowed() && now - pointer.lastMove < 1250;
+    const influence = active ? Math.max(0, 1 - (now - pointer.lastMove) / 1250) : 0;
+    if (active) {
+      pointer.drawnX += (pointer.x - pointer.drawnX) * .22;
+      pointer.drawnY += (pointer.y - pointer.drawnY) * .22;
+    }
+    for (let layer = 0; layer < 5; layer++) {
+      context.beginPath();
+      for (let x = -20; x <= width + 20; x += 12) {
+        let y = lineY(x, layer);
+        if (active) {
+          const distance = (x - pointer.drawnX) / 245;
+          y += Math.exp(-distance * distance) * (pointer.drawnY - y) * .08 * influence;
+        }
+        if (x === -20) context.moveTo(x, y); else context.lineTo(x, y);
+      }
+      context.strokeStyle = `rgba(66, 110, 208, ${.075 + layer * .009})`;
+      context.lineWidth = 1;
+      context.stroke();
+    }
+    for (const x of [width * .31, width * .49, width * .7, width * .89]) {
+      const y = lineY(x, 2);
+      context.beginPath();
+      context.arc(x, y, 2.1, 0, Math.PI * 2);
+      context.fillStyle = "rgba(55, 105, 219, .42)";
+      context.fill();
+    }
+    for (let index = ripples.length - 1; index >= 0; index--) {
+      const ripple = ripples[index];
+      const age = now - ripple.born;
+      if (age > 1050 || !motionAllowed()) { ripples.splice(index, 1); continue; }
+      const fade = 1 - age / 1050;
+      for (let ring = 0; ring < 3; ring++) {
+        const radius = 13 + age * .105 + ring * 28;
+        context.beginPath();
+        context.arc(ripple.x, ripple.y, radius, 0, Math.PI * 2);
+        context.strokeStyle = `rgba(49, 92, 219, ${fade * (.18 - ring * .035)})`;
+        context.lineWidth = 1;
+        context.stroke();
+      }
+      context.beginPath();
+      context.arc(ripple.x, ripple.y, 3 * fade, 0, Math.PI * 2);
+      context.fillStyle = `rgba(49, 92, 219, ${fade * .45})`;
+      context.fill();
+    }
+    if (active || ripples.length) frameId = requestAnimationFrame(draw);
+  }
+  function scheduleDraw() { if (!frameId) frameId = requestAnimationFrame(draw); }
   function resizeCanvas() {
     width = window.innerWidth;
     height = window.innerHeight;
@@ -101,112 +176,25 @@
     canvas.width = Math.round(width * dpr);
     canvas.height = Math.round(height * dpr);
     context.setTransform(dpr, 0, 0, dpr, 0, 0);
-    const count = Math.min(95, Math.max(38, Math.round(width * height / 16500)));
-    particles = Array.from({ length: count }, (_, index) => ({
-      x: Math.random() * width, y: Math.random() * height,
-      phase: Math.random() * Math.PI * 2,
-      speed: .25 + Math.random() * .55,
-      size: index % 7 === 0 ? 1.9 : .8 + Math.random() * .7,
-      color: colors[index % colors.length]
-    }));
-    if (!running) render(performance.now(), true);
-  }
-  function dot(x, y, radius, color, opacity) {
-    context.beginPath();
-    context.arc(x, y, radius, 0, Math.PI * 2);
-    context.fillStyle = "rgba(" + color + "," + opacity + ")";
-    context.fill();
-  }
-  function render(now, staticOnly = false) {
-    context.clearRect(0, 0, width, height);
-    const motionAllowed = !reducedMotion.matches && !coarsePointer.matches;
-    const active = motionAllowed && now - pointer.lastMove < 1650;
-    const intensity = active ? Math.max(0, 1 - Math.max(0, now - pointer.lastMove - 240) / 1500) : 0;
-    if (!staticOnly) frame++;
-    for (const particle of particles) {
-      let x = particle.x + (motionAllowed ? Math.sin(frame * .007 * particle.speed + particle.phase) * 9 : 0);
-      let y = particle.y + (motionAllowed ? Math.cos(frame * .006 * particle.speed + particle.phase) * 7 : 0);
-      const dx = x - pointer.x, dy = y - pointer.y, distance = Math.hypot(dx, dy);
-      if (active && distance < 245 && distance > 1) {
-        const influence = (1 - distance / 245) * intensity;
-        x += dx / distance * influence * 18;
-        y += dy / distance * influence * 18;
-        if (distance > 54 && distance < 218 && particle.size > 1) {
-          context.beginPath();
-          context.moveTo(x, y);
-          context.quadraticCurveTo((x + pointer.x) / 2, (y + pointer.y) / 2 - 13, pointer.x, pointer.y);
-          context.strokeStyle = "rgba(" + particle.color + "," + Math.min(.2, influence * .34) + ")";
-          context.lineWidth = .75;
-          context.stroke();
-        }
-      }
-      dot(x, y, particle.size + (active && distance < 245 ? 1.35 * intensity : 0), particle.color, active && distance < 245 ? .46 + .44 * intensity : .35);
-    }
-    if (active) {
-      const pulse = (Math.sin(now * .008) + 1) / 2;
-      for (let index = 0; index < 2; index++) {
-        context.beginPath();
-        context.arc(pointer.x, pointer.y, 45 + index * 43 + pulse * 12, 0, Math.PI * 2);
-        context.strokeStyle = "rgba(" + (index ? colors[2] : colors[1]) + "," + (.1 - index * .03) * intensity + ")";
-        context.lineWidth = .9;
-        context.stroke();
-      }
-      dot(pointer.x, pointer.y, 3, colors[1], .6 * intensity);
-    }
-    sparks = sparks.filter((spark) => spark.life > 0);
-    for (const spark of sparks) {
-      spark.x += spark.vx; spark.y += spark.vy;
-      spark.vx *= .98; spark.vy *= .98; spark.life -= .02;
-      dot(spark.x, spark.y, spark.radius * Math.max(.4, spark.life), spark.color, spark.life * .75);
-    }
-    ripples = ripples.filter((ripple) => ripple.life > 0);
-    for (const ripple of ripples) {
-      ripple.radius += 2.2; ripple.life -= .023;
-      context.beginPath();
-      context.arc(ripple.x, ripple.y, ripple.radius, 0, Math.PI * 2);
-      context.strokeStyle = "rgba(64,142,241," + ripple.life * .32 + ")";
-      context.lineWidth = 1.2;
-      context.stroke();
-    }
-    if (running) requestAnimationFrame(render);
-  }
-  function startOrStop() {
-    const shouldRun = !document.hidden && !reducedMotion.matches && !coarsePointer.matches;
-    if (shouldRun && !running) {
-      running = true;
-      requestAnimationFrame(render);
-    } else if (!shouldRun) {
-      running = false;
-      render(performance.now(), true);
-    }
+    scheduleDraw();
   }
   window.addEventListener("pointermove", (event) => {
-    if (reducedMotion.matches || coarsePointer.matches || event.pointerType === "touch") return;
-    const distance = Math.hypot(event.clientX - pointer.x, event.clientY - pointer.y);
-    pointer.x = event.clientX; pointer.y = event.clientY; pointer.lastMove = performance.now();
-    if (distance > 2) {
-      const count = Math.min(4, Math.ceil(distance / 20));
-      for (let index = 0; index < count; index++) {
-        const angle = Math.random() * Math.PI * 2, speed = .4 + Math.random() * 1.9;
-        sparks.push({
-          x: pointer.x + (Math.random() - .5) * 14, y: pointer.y + (Math.random() - .5) * 14,
-          vx: Math.cos(angle) * speed, vy: Math.sin(angle) * speed,
-          radius: 1 + Math.random() * 1.8, life: .7 + Math.random() * .3,
-          color: colors[Math.floor(Math.random() * colors.length)]
-        });
-      }
-      if (sparks.length > 120) sparks.splice(0, sparks.length - 120);
+    if (!motionAllowed() || event.pointerType === "touch") return;
+    const now = performance.now();
+    pointer.x = event.clientX;
+    pointer.y = event.clientY;
+    if (pointer.drawnX < 0) { pointer.drawnX = pointer.x; pointer.drawnY = pointer.y; }
+    pointer.lastMove = now;
+    if (now - pointer.lastRipple > 190) {
+      ripples.push({ x: pointer.x, y: pointer.y, born: now });
+      if (ripples.length > 4) ripples.shift();
+      pointer.lastRipple = now;
     }
-  }, { passive: true });
-  window.addEventListener("pointerdown", (event) => {
-    if (!reducedMotion.matches && !coarsePointer.matches && event.pointerType !== "touch") {
-      ripples.push({ x: event.clientX, y: event.clientY, radius: 10, life: 1 });
-    }
+    scheduleDraw();
   }, { passive: true });
   window.addEventListener("resize", resizeCanvas, { passive: true });
-  document.addEventListener("visibilitychange", startOrStop);
-  reducedMotion.addEventListener("change", startOrStop);
-  coarsePointer.addEventListener("change", startOrStop);
+  document.addEventListener("visibilitychange", scheduleDraw);
+  reducedMotion.addEventListener("change", scheduleDraw);
+  coarsePointer.addEventListener("change", scheduleDraw);
   resizeCanvas();
-  startOrStop();
 })();
